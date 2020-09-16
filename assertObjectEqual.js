@@ -1,11 +1,3 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✔️ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`❌ Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
 const eqArrays = function(arrayA, arrayB) {
   if (arrayA.length !== arrayB.length) {
     return false;
@@ -42,25 +34,35 @@ const eqObjects = function(objA, objB) {
   return true;
 };
 
+const assertObjectEqual = function(objA, objB) {
+  //Importing the util library's inspect function
+  const inspect = require('util').inspect;
+  if (eqObjects(objA, objB)) {
+    console.log(`✔️ Assertion Passed: ${inspect(objA)} === ${inspect(objB)}`);
+  } else {
+    console.log(`❌ Assertion Failed: ${inspect(objA)} !== ${inspect(objB)}`);
+  }
+};
+
 
 //Test Cases with primitive values
 
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true);
+assertObjectEqual(ab, ba);
 
 const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false);
+assertObjectEqual(ab, abc);
 
 const abd = { a: "1", b: "2", d: "3" };
-assertEqual(eqObjects(abc, abd), false);
+assertObjectEqual(abc, abd);
 
 
 //Test cases with Array as values
 
 const cd = { c: "1", d: ["2", 3] };
 const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true);
+assertObjectEqual(cd, dc);
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false);
+assertObjectEqual(cd, cd2);
