@@ -20,18 +20,17 @@ const assertArraysEqual = function(arrayA, arrayB) {
 };
 
 const letterPosition = function(sentence) {
+  //Initialize the object to return to an empty object
   let result  = {};
-  let spaceCounter = 0;
+  //For every character of the sentence
   for (let i = 0; i < sentence.length; i++) {
     let character = sentence.charAt(i);
-    if (character === "") {
-      spaceCounter += 1;
+    //If the key associated to the character exists, add the index of the character to the key"s value (an array) 
+    if (result[character]) {
+      result[character].push(i);
+    //Else create an array with the index an associate it to the key value
     } else {
-      if (result[character]) {
-        result[character].push(i - spaceCounter);
-      } else {
-        result[character] = [i - spaceCounter];
-      }
+      result[character] = [i];
     }
   }
   return result;

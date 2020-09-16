@@ -7,11 +7,16 @@ const assertEqual = function(actual, expected) {
 };
 
 const countLetters = function(sentence) {
+  //Initialize the object to return to an empty object
   let result  = {};
+  //For every key of the object
   for (const character of sentence) {
+    //If it's not a space
     if (character !== "") {
+      //If the key exists, add 1 to its value
       if (result[character]) {
         result[character] += 1;
+      //Else create the key and give it 1 as a value
       } else {
         result[character] = 1;
       }
