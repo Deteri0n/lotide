@@ -12,7 +12,7 @@ const countLetters = function(sentence) {
   //For every key of the object
   for (const character of sentence) {
     //If it's not a space
-    if (character !== "") {
+    if (character !== " ") {
       //If the key exists, add 1 to its value
       if (result[character]) {
         result[character] += 1;
@@ -35,3 +35,5 @@ assertEqual(countLetters("lighthouse in the house")["u"], 2);
 assertEqual(countLetters("lighthouse in the house")["s"], 2);
 assertEqual(countLetters("lighthouse in the house")["e"], 3);
 assertEqual(countLetters("lighthouse in the house")["n"], 1);
+
+console.log(countLetters("lighthouse in the house"));

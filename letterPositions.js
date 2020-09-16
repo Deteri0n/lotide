@@ -25,12 +25,14 @@ const letterPosition = function(sentence) {
   //For every character of the sentence
   for (let i = 0; i < sentence.length; i++) {
     let character = sentence.charAt(i);
-    //If the key associated to the character exists, add the index of the character to the key"s value (an array) 
-    if (result[character]) {
-      result[character].push(i);
-    //Else create an array with the index an associate it to the key value
-    } else {
-      result[character] = [i];
+    if (character !== " ") {
+      //If the key associated to the character exists, add the index of the character to the key"s value (an array) 
+      if (result[character]) {
+        result[character].push(i);
+      //Else create an array with the index an associate it to the key value
+      } else {
+        result[character] = [i];
+      }
     }
   }
   return result;
@@ -46,3 +48,5 @@ assertArraysEqual(letterPosition("lighthouse in the house")["u"], [7, 20]);
 assertArraysEqual(letterPosition("lighthouse in the house")["s"], [8, 21]);
 assertArraysEqual(letterPosition("lighthouse in the house")["e"], [9, 16, 22]);
 assertArraysEqual(letterPosition("lighthouse in the house")["n"], [12]);
+
+console.log(letterPosition("lighthouse in the house"));
