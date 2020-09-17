@@ -7,8 +7,11 @@ const assertEqual = function(actual, expected) {
 };
 
 const countOnly = function(allItems, itemsToCount) {
+  //Initialize the object to return
   let results = {};
+  //For every key of the object
   for (const item of allItems) {
+    //If the key exists, add 1 to its value
     if (itemsToCount[item]) {
       if (results[item]) {
         results[item] += 1;
