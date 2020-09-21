@@ -38,3 +38,5 @@ const numbers = [65, 66, 67, 68, 69];
 assertArraysEqual(map(numbers, number => String.fromCharCode(number)), ["A", "B", "C", "D", "E"]);
 
 assertArraysEqual(map(numbers, number => String(number)), ["65", "66", "67", "68", "69"]);
+
+module.exports = map;
